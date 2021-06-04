@@ -5,77 +5,61 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
-import android.widget.Toast
-
-
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var mostrarAndar: TextView
-    private lateinit var mostrarPessoas: TextView
-    private lateinit var editarAndar: EditText
-    private lateinit var btnAndar: Button
-    private lateinit var btnEntrar: Button
-    private lateinit var btnSair: Button
+    private lateinit var showFloor: TextView
+    private lateinit var showPeople: TextView
+    private lateinit var editFloor: EditText
+    private lateinit var btnFloor: Button
+    private lateinit var btnEnter: Button
+    private lateinit var btnExit: Button
 
-    private val totalAndares: Int = 12
-    private val maximoPessoas: Int = 6
-    private var numeroPessoas: Int = 0
-    private var atualAndar: Int = 0
+    var numPeople: Int = 0
+    var currentFloor: Int = 0
+    val totalFloors: Int = 12
+    val maxPeople: Int = 6
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         bindViews()
+        firstSetting()
+        callClickViews()
     }
 
     private fun bindViews() {
-        mostrarAndar = findViewById(R.id.txtAndar)
-        mostrarPessoas = findViewById(R.id.txtPessoas)
-        editarAndar = findViewById(R.id.edtAndar)
-        btnAndar = findViewById(R.id.btnAndar)
-        btnEntrar = findViewById(R.id.btnEntrar)
-        btnSair = findViewById(R.id.btnSair)
+        showFloor = findViewById(R.id.txtFloor)
+        showPeople = findViewById(R.id.txtPeople)
+        editFloor = findViewById(R.id.edtFloor)
+        btnFloor = findViewById(R.id.btnFloor)
+        btnEnter = findViewById(R.id.btnEnter)
+        btnExit = findViewById(R.id.btnExit)
+    }
 
-        mostrarAndar.text = ("$atualAndar° andar")
-        mostrarPessoas.text = ("$numeroPessoas/$maximoPessoas")
+    private fun firstSetting(){
+        showFloor.text = ("$currentFloor° andar")
+        showPeople.text = ("$numPeople/$maxPeople")
+    }
 
 
-        btnAndar.setOnClickListener {
-            var atualAndar = editarAndar.text.toString().toInt()
-            if (atualAndar == null || atualAndar > totalAndares){
-                editarAndar.error = "Digite um andar válido"
+    private fun callClickViews() {
+        btnFloor.setOnClickListener {
+            currentFloor = Elevator.floor()
+            showFloor.text = ("$currentFloor° andar")
+            currentFloor.setText(null)
 
-            }else{
-                mostrarAndar.text = ("$atualAndar° andar")
-            }
-            editarAndar?.setText(null)
+        }
+            showFloor.error
+
+        btnEnter.setOnClickListener {
+            numPeople = Elevator.enterPeople()
+            showPeople.text = ("$numPeople/$maxPeople")
         }
 
-        btnEntrar.setOnClickListener {
-            numeroPessoas += 1
-            if(numeroPessoas == null || numeroPessoas==0){
-                Toast.makeText(this,
-                    "Não tem ninguém no elevador!",
-                    Toast.LENGTH_SHORT).show()
-            } else if (numeroPessoas> maximoPessoas){
-                Toast.makeText(this,
-                    "O elevador já atingiu a quantidade máxima de pessoas!",
-                    Toast.LENGTH_SHORT).show()
-            }else {
-                mostrarPessoas.text = ("$numeroPessoas/$maximoPessoas")
-            }
-        }
-
-        btnSair.setOnClickListener {
-            numeroPessoas -= 1
-            if(numeroPessoas == null || numeroPessoas<0){
-                Toast.makeText(this,
-                    "Não tem ninguém no elevador!",
-                    Toast.LENGTH_SHORT).show()
-            }else {
-                mostrarPessoas.text = ("$numeroPessoas/$maximoPessoas")
-            }
+        btnExit.setOnClickListener {
+            numPeople = Elevator.exitPeople()
+            showPeople.text = ("$numPeople/$maxPeople")
         }
     }
 }
