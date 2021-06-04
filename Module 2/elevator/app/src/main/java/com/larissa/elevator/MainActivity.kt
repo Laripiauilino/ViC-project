@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
+import android.widget.Toast
 
 class MainActivity : AppCompatActivity() {
 
@@ -15,51 +16,70 @@ class MainActivity : AppCompatActivity() {
     private lateinit var btnEnter: Button
     private lateinit var btnExit: Button
 
-    var numPeople: Int = 0
-    var currentFloor: Int = 0
-    val totalFloors: Int = 12
-    val maxPeople: Int = 6
+    private var numPeople: Int = 0
+    private var currentFloor: Int = 0
+    private val totalFloors: Int = 12
+    private val maxPeople: Int = 6
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        bindViews()
-        firstSetting()
-        callClickViews()
-    }
 
-    private fun bindViews() {
         showFloor = findViewById(R.id.txtFloor)
         showPeople = findViewById(R.id.txtPeople)
         editFloor = findViewById(R.id.edtFloor)
         btnFloor = findViewById(R.id.btnFloor)
         btnEnter = findViewById(R.id.btnEnter)
         btnExit = findViewById(R.id.btnExit)
-    }
 
-    private fun firstSetting(){
-        showFloor.text = ("$currentFloor° andar")
+        val elevator = Elevator(currentFloor = currentFloor ,
+            totalFloors = totalFloors ,
+            numPeople = numPeople ,
+            maxPeople = maxPeople)
+
+//      First settings
+        showFloor.text = ("Térreo")
         showPeople.text = ("$numPeople/$maxPeople")
-    }
 
-
-    private fun callClickViews() {
         btnFloor.setOnClickListener {
-            currentFloor = Elevator.floor()
-            showFloor.text = ("$currentFloor° andar")
-            currentFloor.setText(null)
 
+            val currentFloor = editFloor.text.toString()
+
+            if (currentFloor.isNotBlank()) {
+                if (elevator.floor(currentFloor.toInt())) {
+                    if (currentFloor.toInt() == 0) {
+                        showFloor.text = "Térreo"
+                    } else {
+                        showFloor.text = "${currentFloor}° andar"
+                    }
+                } else {
+                    editFloor.error = "Digite um andar válido!"
+                }
+                editFloor.setText(null)
+            }else{
+                editFloor.error = "O andar não foi inserido!"
+            }
         }
-            showFloor.error
 
         btnEnter.setOnClickListener {
-            numPeople = Elevator.enterPeople()
-            showPeople.text = ("$numPeople/$maxPeople")
+            if (elevator.enterPeople()) {
+                showPeople.text = ("${elevator.numPeople}/${elevator.maxPeople}")
+            } else {
+                Toast.makeText(this@MainActivity ,
+                    "O elevador já atingiu a quantidade máxima de pessoas!" ,
+                    Toast.LENGTH_SHORT).show()
+            }
         }
 
         btnExit.setOnClickListener {
-            numPeople = Elevator.exitPeople()
-            showPeople.text = ("$numPeople/$maxPeople")
+            if (elevator.exitPeople()) {
+                showPeople.text = ("${elevator.numPeople}/${elevator.maxPeople}")
+            } else {
+                Toast.makeText(this@MainActivity ,
+                    "Não tem ninguém no elevador!" ,
+                    Toast.LENGTH_SHORT).show()
+            }
         }
     }
 }
+
