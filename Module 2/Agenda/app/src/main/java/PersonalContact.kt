@@ -1,7 +1,7 @@
 package com.larissa.agenda
 
 class PersonalContact(name: String,
-                           phone: Int,
+                           phone:  String,
                            dataType: DataType,
                            private val email: String) :
             Contact(name,

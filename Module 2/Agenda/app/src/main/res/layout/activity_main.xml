@@ -1,126 +1,126 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:background="#FFFFFF"
-    tools:context=".MainActivity">
-
-    <EditText
-        android:id="@+id/edtName"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:layout_marginTop="12dp"
-        android:layout_marginLeft="24dp"
-        android:layout_marginRight="24dp"
-        android:background="@drawable/border"
-        android:hint="Nome"
-        android:paddingStart="20dp"
-        android:textSize="18sp"
-        android:inputType="textPersonName"/>
-
-    <EditText
-        android:id="@+id/edtPhone"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginLeft="24dp"
-        android:layout_marginRight="24dp"
-        android:background="@drawable/border"
-        android:hint="Celular"
-        android:paddingStart="20dp"
-        android:textSize="18sp"
-        android:inputType="phone"/>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_marginLeft="12dp"
-        android:layout_marginRight="24dp"
-        android:layout_height="wrap_content">
-
-        <RadioGroup
-            android:id="@+id/rdgDataType"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_margin="12dp"
-            android:checkedButton="@+id/rdPersonal">
-
-            <RadioButton android:id="@+id/rdPersonal"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Pessoal"
-                android:textSize="18sp"
-                android:onClick="onRadioButtonClicked"/>
-            <RadioButton android:id="@+id/rdProfessional"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="18sp"
-                android:text="Trabalho"
-                android:onClick="onRadioButtonClicked"/>
-        </RadioGroup>
-    </LinearLayout>
-
-    <EditText
-        android:id="@+id/edtDataType"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:layout_marginLeft="24dp"
-        android:layout_marginRight="24dp"
-        android:background="@drawable/border"
-        android:hint="E-mail"
-        android:paddingStart="20dp"
-        android:textSize="18sp"
-        android:inputType="textEmailAddress"/>
-
-    <Button
-        android:id="@+id/btnSave"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:layout_gravity="center_horizontal"
-        android:text="Salvar"/>
-
-    <TextView
-        android:layout_width="350dp"
-        android:layout_gravity="center"
-        android:layout_height="match_parent"
-        android:background="@drawable/separator"/>
-
+    android:layout_height="match_parent">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:orientation="horizontal" >
+        android:orientation="vertical"
+        android:background="#FFFFFF"
+        tools:context=".MainActivity">
 
         <EditText
-            android:id="@+id/edtSearch"
-            android:layout_width="0dp"
-            android:layout_weight="7"
+            android:id="@+id/edtName"
+            android:layout_width="match_parent"
             android:layout_height="40dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginStart="16dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginLeft="24dp"
+            android:layout_marginRight="24dp"
             android:background="@drawable/border"
-            android:hint="Pesquisar"
+            android:hint="Nome"
             android:paddingStart="20dp"
             android:textSize="18sp"
             android:inputType="textPersonName"/>
 
-        <Button
-            android:id="@+id/btnSearch"
-            android:layout_width="0dp"
-            android:layout_weight="1.2"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="8dp"
-            android:layout_marginLeft="8dp"
-            android:drawableLeft="@drawable/search">
-    </LinearLayout>
+        <EditText
+            android:id="@+id/edtPhone"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="24dp"
+            android:layout_marginRight="24dp"
+            android:background="@drawable/border"
+            android:hint="Celular"
+            android:paddingStart="20dp"
+            android:textSize="18sp"
+            android:inputType="phone"/>
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_marginLeft="12dp"
+            android:layout_marginRight="24dp"
+            android:layout_height="wrap_content">
+
+            <RadioGroup
+                android:id="@+id/rdgDataType"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_margin="12dp"
+                android:checkedButton="@+id/rdPersonal">
+
+                <RadioButton android:id="@+id/rdPersonal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Pessoal"
+                    android:textSize="18sp"
+                    android:onClick="onRadioButtonClicked"/>
+                <RadioButton android:id="@+id/rdProfessional"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="18sp"
+                    android:text="Trabalho"
+                    android:onClick="onRadioButtonClicked"/>
+            </RadioGroup>
+        </LinearLayout>
+
+        <EditText
+            android:id="@+id/edtDataType"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginLeft="24dp"
+            android:layout_marginRight="24dp"
+            android:background="@drawable/border"
+            android:hint="Referência"
+            android:paddingStart="20dp"
+            android:textSize="18sp"
+            android:inputType="textShortMessage"/>
+
+        <Button
+            android:id="@+id/btnSave"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:layout_gravity="center_horizontal"
+            android:text="Salvar"/>
+
+        <TextView
+            android:layout_width="350dp"
+            android:layout_gravity="center"
+            android:layout_height="match_parent"
+            android:background="@drawable/separator"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:orientation="horizontal" >
+
+            <EditText
+                android:id="@+id/edtSearch"
+                android:layout_width="0dp"
+                android:layout_weight="7"
+                android:layout_height="40dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="16dp"
+                android:background="@drawable/border"
+                android:hint="Pesquisar"
+                android:paddingStart="20dp"
+                android:textSize="18sp"
+                android:inputType="textPersonName"/>
+
+            <Button
+                android:id="@+id/btnSearch"
+                android:layout_width="0dp"
+                android:layout_weight="1.2"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="8dp"
+                android:layout_marginLeft="8dp"
+                android:drawableLeft="@drawable/search"/>
+        </LinearLayout>
+
 
         <TextView
             android:id="@+id/txtDisplay"
@@ -129,15 +129,14 @@
             android:layout_marginTop="8dp"
             android:paddingStart="20dp"
             android:paddingEnd="20dp"/>
-    </ScrollView>
 
-    <Button
-        android:id="@+id/btnDisplayAll"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="45dp"
-        android:layout_gravity="center_horizontal"
-        android:text="Exibir todos os contatos"/>
+        <Button
+            android:id="@+id/btnDisplayAll"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="45dp"
+            android:layout_gravity="center_horizontal"
+            android:text="Exibir todos os contatos"/>
 
-
-</LinearLayout>
+    </LinearLayout>
+</ScrollView>

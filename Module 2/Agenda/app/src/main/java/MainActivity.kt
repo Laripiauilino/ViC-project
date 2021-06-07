@@ -2,6 +2,9 @@ package com.larissa.agenda
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.InputType
+import android.text.TextUtils.isEmpty
+import android.view.View
 import android.widget.*
 
 class MainActivity : AppCompatActivity() {
@@ -17,15 +20,11 @@ class MainActivity : AppCompatActivity() {
     private lateinit var btnDisplayAll: Button
 
     private var dataTypeSelected: DataType? = null
-//    private var funcionarios: MutableList<Contact> = mutableListOf()
+    private var contactList: MutableList<String> = mutableListOf()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        bindViews()
-    }
-
-    private fun bindViews() {
         edtName = findViewById(R.id.edtName)
         edtPhone = findViewById(R.id.edtPhone)
         rdgDataType = findViewById(R.id.rdgDataType)
@@ -39,14 +38,62 @@ class MainActivity : AppCompatActivity() {
 
         btnSave.setOnClickListener {
             val nameTyped = edtName.text.toString()
-            val phoneTyped = edtPhone.text.toString().toInt()
+            val phoneTyped = edtPhone.text.toString()
+            val dataTyped = edtDataType.text.toString()
 
-            if (dataTypeSelected != null){
-                
-            }
+            edtName.error = if(nameTyped.isNotEmpty()) null else "Insira a informação solicitada!"
+            edtPhone.error = if(phoneTyped.isNotEmpty()) null else "Insira a informação solicitada!"
+
             dataTypeSelected?.let{
-                Contact(nameTyped,phoneTyped,it)
+                edtDataType.error = if(dataTyped.isNotEmpty()) null else "Insira a informação solicitada!"
+                if (dataTypeSelected?.description == "pessoal"){
+                    var personalContact = PersonalContact(nameTyped,phoneTyped,it,dataTyped).displayContact()
+                    txtDisplay.text ="$personalContact"
+                    contactList.add(personalContact)
+                }else if(dataTypeSelected?.description == "profissional"){
+                    var professionalContact = ProfessionalContact(nameTyped,phoneTyped,it,dataTyped).displayContact()
+                    txtDisplay.text ="$professionalContact"
+                    contactList.add(professionalContact)
+                }
+            }
+        }
+        btnSearch.setOnClickListener {
+            btnDisplayAll.visibility = View.VISIBLE
+            var search = edtSearch.text.toString()
+            var listSearch = contactList.contains(search)
+            txtDisplay.text = "$listSearch"
+
+        }
+        btnDisplayAll.setOnClickListener {
+            btnSearch.visibility = View.INVISIBLE
+            val sortedList = contactList.sortedDescending()
+            txtDisplay.text = "$sortedList"
+
+        }
+    }
+
+    fun onRadioButtonClicked(view: View) {
+        if (view is RadioButton) {
+
+            val checked = view.isChecked
+
+            when (view.id) {
+                R.id.rdPersonal ->
+                    if (checked) {
+                        dataTypeSelected  = DataType.PERSONAL
+                        edtDataType.hint = "Referência"
+                        edtDataType.inputType = InputType.TYPE_TEXT_VARIATION_SHORT_MESSAGE
+                    }
+                R.id.rdProfessional -> {
+                    if (checked) {
+                        dataTypeSelected  = DataType.PROFESSIONAL
+                        edtDataType.hint = "E-mail"
+                        edtDataType.inputType = InputType.TYPE_TEXT_VARIATION_EMAIL_ADDRESS
+                    }
+                }
             }
         }
     }
+
 }
+

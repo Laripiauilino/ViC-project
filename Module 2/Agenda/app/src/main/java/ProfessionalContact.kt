@@ -1,9 +1,9 @@
 package com.larissa.agenda
 
 class ProfessionalContact(name : String,
-                               phone: Int,
+                               phone: String,
                                dataType: DataType,
-                               val reference: String) :
+                               private val reference: String) :
             Contact(name,
                 phone,
                 dataType) {
