@@ -1,13 +1,12 @@
 package com.larissa.agenda
 
+open class Contact(open val name: String,
+                   open val phone: Int,
+                   open var dataType: DataType? = null){
 
-data class Contact(private val nome: String,
-                       private val credencial: String,
-                       private var setor: Int){
 
-    fun getCredencial() : String = credencial
+    open fun getName() : String = name
 
-    fun exibirRegistro() : String{
-        return "$nome - $credencial do setor $setor"
-    }
+    open fun getPhone(): Int = phone
+
 }
