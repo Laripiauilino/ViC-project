@@ -48,14 +48,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:layout_margin="12dp"
-                android:checkedButton="@+id/rdPersonal">
+                android:layout_margin="12dp">
 
                 <RadioButton android:id="@+id/rdPersonal"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Pessoal"
                     android:textSize="18sp"
+                    android:checked="true"
                     android:onClick="onRadioButtonClicked"/>
                 <RadioButton android:id="@+id/rdProfessional"
                     android:layout_width="wrap_content"
@@ -106,7 +106,7 @@
                 android:layout_marginEnd="8dp"
                 android:layout_marginStart="16dp"
                 android:background="@drawable/border"
-                android:hint="Pesquisar"
+                android:hint="Pesquisar (Primeiro nome)"
                 android:paddingStart="20dp"
                 android:textSize="18sp"
                 android:inputType="textPersonName"/>

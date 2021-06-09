@@ -9,18 +9,20 @@ import android.widget.*
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var edtName: EditText
-    private lateinit var edtPhone: EditText
-    private lateinit var rdgDataType: RadioGroup
-    private lateinit var edtDataType: EditText
-    private lateinit var btnSave: Button
-    private lateinit var edtSearch: EditText
-    private lateinit var btnSearch: Button
-    private lateinit var txtDisplay: TextView
-    private lateinit var btnDisplayAll: Button
+    private lateinit var edtName : EditText
+    private lateinit var edtPhone : EditText
+    private lateinit var rdgDataType : RadioGroup
+    private lateinit var edtDataType : EditText
+    private lateinit var btnSave : Button
+    private lateinit var edtSearch : EditText
+    private lateinit var btnSearch : Button
+    private lateinit var txtDisplay : TextView
+    private lateinit var btnDisplayAll : Button
 
-    private var dataTypeSelected: DataType? = null
-    private var contactList: MutableList<String> = mutableListOf()
+    private val contactList : MutableList<Contact> = mutableListOf()
+    private var dataTypeSelected : DataType? = null
+    var message = " "
+    private val textError : String  = "Insira a informação solicitada!"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,40 +37,63 @@ class MainActivity : AppCompatActivity() {
         txtDisplay = findViewById(R.id.txtDisplay)
         btnDisplayAll = findViewById(R.id.btnDisplayAll)
 
-
         btnSave.setOnClickListener {
-            val nameTyped = edtName.text.toString()
-            val phoneTyped = edtPhone.text.toString()
-            val dataTyped = edtDataType.text.toString()
+            btnDisplayAll.visibility = View.VISIBLE
+            val typedName = edtName.text.toString()
+            val typedPhone = edtPhone.text.toString()
+            val typedData = edtDataType.text.toString()
 
-            edtName.error = if(nameTyped.isNotEmpty()) null else "Insira a informação solicitada!"
-            edtPhone.error = if(phoneTyped.isNotEmpty()) null else "Insira a informação solicitada!"
+            if(typedName.isEmpty()) edtName.error = textError
+            if(typedPhone.isEmpty()) edtPhone.error =  textError
+            if(typedData.isEmpty()) edtDataType.error = textError
 
-            dataTypeSelected?.let{
-                edtDataType.error = if(dataTyped.isNotEmpty()) null else "Insira a informação solicitada!"
-                if (dataTypeSelected?.description == "pessoal"){
-                    var personalContact = PersonalContact(nameTyped,phoneTyped,it,dataTyped).displayContact()
-                    txtDisplay.text ="$personalContact"
-                    contactList.add(personalContact)
-                }else if(dataTypeSelected?.description == "profissional"){
-                    var professionalContact = ProfessionalContact(nameTyped,phoneTyped,it,dataTyped).displayContact()
-                    txtDisplay.text ="$professionalContact"
-                    contactList.add(professionalContact)
+            dataTypeSelected?.let {
+
+                when(dataTypeSelected){
+                    DataType.PERSONAL -> contactList.add(PersonalContact(typedName , typedPhone , it , typedData))
+                    else ->  contactList.add(ProfessionalContact(typedName , typedPhone , it , typedData))
                 }
             }
+
+            contactList.sortBy { contact -> contact.name }
+            for (sorted in contactList) {
+                when (sorted) {
+                    is PersonalContact -> sorted.displayPersonalContact()
+                        .also { message += it + "\n\n"}
+                    is ProfessionalContact -> sorted.displayProfessionalContact()
+                        .also { it.also { message += it + "\n\n"} }                }
+            }
+            edtName.text.clear()
+            edtPhone.text.clear()
+            edtDataType.text.clear()
         }
+
         btnSearch.setOnClickListener {
             btnDisplayAll.visibility = View.VISIBLE
-            var search = edtSearch.text.toString()
-            var listSearch = contactList.contains(search)
-            txtDisplay.text = "$listSearch"
+            val typedSearch = edtSearch.text.toString()
+            val search = contactList.find{contact -> contact.name == typedSearch}
 
+            if(typedSearch.isEmpty()) edtSearch.error = textError
+            if(search != null) {
+                when (search) {
+                    is PersonalContact -> search.displayPersonalContact()
+                        .also { txtDisplay.text = it }
+                    is ProfessionalContact -> search.displayProfessionalContact()
+                        .also { txtDisplay.text = it }
+                }
+            }else{
+                Toast.makeText(this,"Não foi possível encontrar o nome digitado", Toast.LENGTH_LONG).show()
+            }
+            edtSearch.text.clear()
         }
-        btnDisplayAll.setOnClickListener {
-            btnSearch.visibility = View.INVISIBLE
-            val sortedList = contactList.sortedDescending()
-            txtDisplay.text = "$sortedList"
 
+        btnDisplayAll.setOnClickListener {
+            if(contactList.isEmpty()){
+                Toast.makeText(this,"Não tem nenhum nome cadastrado!", Toast.LENGTH_LONG).show()
+            }else{
+                txtDisplay.text = message
+            }
+            btnDisplayAll.visibility = View.INVISIBLE
         }
     }
 
@@ -94,6 +119,5 @@ class MainActivity : AppCompatActivity() {
             }
         }
     }
-
 }
 

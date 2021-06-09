@@ -38,8 +38,8 @@ class MainActivity : AppCompatActivity() {
             maxPeople = maxPeople)
 
 //      First settings
-        showFloor.text = ("Térreo")
-        showPeople.text = ("$numPeople/$maxPeople")
+//        showFloor.text = ("Térreo")
+//        showPeople.text = ("$numPeople/$maxPeople")
 
         btnFloor.setOnClickListener {
 
