@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="textBox">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">40dp</item>
+        <item name="android:layout_marginTop">12dp</item>
+        <item name="android:layout_marginLeft">24dp</item>
+        <item name="android:layout_marginRight">24dp</item>
+        <item name="android:background">@drawable/border</item>
+    </style>
+    <style name="textBoxSearch">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">40dp</item>
+        <item name="android:layout_marginTop">10dp</item>
+        <item name="android:layout_marginLeft">24dp</item>
+        <item name="android:layout_marginRight">24dp</item>
+        <item name="android:background">@drawable/border</item>
+    </style>
+    <style name="separator">
+        <item name="android:layout_width">350dp</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:background">@drawable/separator</item>
+    </style>
+    <style name="searchButton">
+        <item name="android:layout_width">48dp</item>
+        <item name="android:layout_height">48dp</item>
+        <item name="android:layout_marginLeft">8dp</item>
+        <item name="android:layout_marginBottom">8dp</item>
+        <item name="android:background">@drawable/search_foreground</item>
+
+    </style>
+</resources>

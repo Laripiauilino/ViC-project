@@ -1,3 +1,16 @@
 <resources>
     <string name="app_name">Minha Agenda</string>
+    <string name="name">Nome</string>
+    <string name="phone">Celular</string>
+    <string name="personal">Pessoal</string>
+    <string name="professional">Trabalho</string>
+    <string name="reference">Referência</string>
+    <string name="email">E-mail</string>
+    <string name="save">Salvar</string>
+    <string name="search">Pesquisar (Primeiro nome)</string>
+    <string name="display">Exibir todos os contatos</string>
+    <string name="blankError">"Insira a informação solicitada!"</string>
+    <string name="searchError">"Não foi possível encontrar o nome digitado"</string>
+    <string name="registredError">"Não tem nenhum nome cadastrado!"</string>
+
 </resources>

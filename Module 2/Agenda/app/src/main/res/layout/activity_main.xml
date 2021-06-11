@@ -13,26 +13,16 @@
 
         <EditText
             android:id="@+id/edtName"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_marginTop="12dp"
-            android:layout_marginLeft="24dp"
-            android:layout_marginRight="24dp"
-            android:background="@drawable/border"
-            android:hint="Nome"
+            style="@style/textBox"
+            android:hint="@string/name"
             android:paddingStart="20dp"
             android:textSize="18sp"
             android:inputType="textPersonName"/>
 
         <EditText
             android:id="@+id/edtPhone"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginLeft="24dp"
-            android:layout_marginRight="24dp"
-            android:background="@drawable/border"
-            android:hint="Celular"
+            style="@style/textBox"
+            android:hint="@string/phone"
             android:paddingStart="20dp"
             android:textSize="18sp"
             android:inputType="phone"/>
@@ -53,7 +43,7 @@
                 <RadioButton android:id="@+id/rdPersonal"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Pessoal"
+                    android:text="@string/personal"
                     android:textSize="18sp"
                     android:checked="true"
                     android:onClick="onRadioButtonClicked"/>
@@ -61,19 +51,15 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="18sp"
-                    android:text="Trabalho"
+                    android:text="@string/professional"
                     android:onClick="onRadioButtonClicked"/>
             </RadioGroup>
         </LinearLayout>
 
         <EditText
             android:id="@+id/edtDataType"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_marginLeft="24dp"
-            android:layout_marginRight="24dp"
-            android:background="@drawable/border"
-            android:hint="Referência"
+            style="@style/textBoxSearch"
+            android:hint="@string/reference"
             android:paddingStart="20dp"
             android:textSize="18sp"
             android:inputType="textShortMessage"/>
@@ -84,13 +70,11 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
             android:layout_gravity="center_horizontal"
-            android:text="Salvar"/>
+            android:text="@string/save"/>
 
         <TextView
-            android:layout_width="350dp"
-            android:layout_gravity="center"
-            android:layout_height="match_parent"
-            android:background="@drawable/separator"/>
+            style="@style/separator"
+        />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -106,21 +90,15 @@
                 android:layout_marginEnd="8dp"
                 android:layout_marginStart="16dp"
                 android:background="@drawable/border"
-                android:hint="Pesquisar (Primeiro nome)"
+                android:hint="@string/search"
                 android:paddingStart="20dp"
                 android:textSize="18sp"
                 android:inputType="textPersonName"/>
 
             <Button
                 android:id="@+id/btnSearch"
-                android:layout_width="0dp"
-                android:layout_weight="1.2"
-                android:layout_height="wrap_content"
-                android:layout_marginRight="8dp"
-                android:layout_marginLeft="8dp"
-                android:drawableLeft="@drawable/search"/>
+                style="@style/searchButton"/>
         </LinearLayout>
-
 
         <TextView
             android:id="@+id/txtDisplay"
@@ -136,7 +114,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="45dp"
             android:layout_gravity="center_horizontal"
-            android:text="Exibir todos os contatos"/>
+            android:text="@string/display"/>
 
     </LinearLayout>
 </ScrollView>

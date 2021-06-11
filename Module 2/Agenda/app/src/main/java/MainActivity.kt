@@ -22,7 +22,6 @@ class MainActivity : AppCompatActivity() {
     private val contactList : MutableList<Contact> = mutableListOf()
     private var dataTypeSelected : DataType? = null
     var message = " "
-    private val textError : String  = "Insira a informação solicitada!"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -43,9 +42,9 @@ class MainActivity : AppCompatActivity() {
             val typedPhone = edtPhone.text.toString()
             val typedData = edtDataType.text.toString()
 
-            if(typedName.isEmpty()) edtName.error = textError
-            if(typedPhone.isEmpty()) edtPhone.error =  textError
-            if(typedData.isEmpty()) edtDataType.error = textError
+            if(typedName.isEmpty()) edtName.error = getString(R.string.blankError)
+            if(typedPhone.isEmpty()) edtPhone.error =  getString(R.string.blankError)
+            if(typedData.isEmpty()) edtDataType.error = getString(R.string.blankError)
 
             dataTypeSelected?.let {
 
@@ -73,7 +72,8 @@ class MainActivity : AppCompatActivity() {
             val typedSearch = edtSearch.text.toString()
             val search = contactList.find{contact -> contact.name == typedSearch}
 
-            if(typedSearch.isEmpty()) edtSearch.error = textError
+            if(typedSearch.isEmpty()) getString(R.string.blankError)
+                .also { edtSearch.error = it }
             if(search != null) {
                 when (search) {
                     is PersonalContact -> search.displayPersonalContact()
@@ -82,14 +82,14 @@ class MainActivity : AppCompatActivity() {
                         .also { txtDisplay.text = it }
                 }
             }else{
-                Toast.makeText(this,"Não foi possível encontrar o nome digitado", Toast.LENGTH_LONG).show()
+                Toast.makeText(this,getString(R.string.searchError), Toast.LENGTH_LONG).show()
             }
             edtSearch.text.clear()
         }
 
         btnDisplayAll.setOnClickListener {
             if(contactList.isEmpty()){
-                Toast.makeText(this,"Não tem nenhum nome cadastrado!", Toast.LENGTH_LONG).show()
+                Toast.makeText(this,getString(R.string.registredError), Toast.LENGTH_LONG).show()
             }else{
                 txtDisplay.text = message
             }
@@ -106,13 +106,13 @@ class MainActivity : AppCompatActivity() {
                 R.id.rdPersonal ->
                     if (checked) {
                         dataTypeSelected  = DataType.PERSONAL
-                        edtDataType.hint = "Referência"
+                        edtDataType.hint = getString(R.string.reference)
                         edtDataType.inputType = InputType.TYPE_TEXT_VARIATION_SHORT_MESSAGE
                     }
                 R.id.rdProfessional -> {
                     if (checked) {
                         dataTypeSelected  = DataType.PROFESSIONAL
-                        edtDataType.hint = "E-mail"
+                        edtDataType.hint = getString(R.string.email)
                         edtDataType.inputType = InputType.TYPE_TEXT_VARIATION_EMAIL_ADDRESS
                     }
                 }
