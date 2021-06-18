@@ -37,10 +37,6 @@ class MainActivity : AppCompatActivity() {
             numPeople = numPeople ,
             maxPeople = maxPeople)
 
-//      First settings
-//        showFloor.text = ("Térreo")
-//        showPeople.text = ("$numPeople/$maxPeople")
-
         btnFloor.setOnClickListener {
 
             val currentFloor = editFloor.text.toString()

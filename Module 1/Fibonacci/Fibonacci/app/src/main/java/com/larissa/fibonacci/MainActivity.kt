@@ -8,7 +8,6 @@ import android.widget.TextView
 
 class MainActivity : AppCompatActivity() {
 
-    //Declarar variaveis e componentes
     lateinit var inserirNumeroTermos: EditText
     lateinit var calcularSerie: Button
     lateinit var mostrarSerie: TextView
@@ -29,13 +28,13 @@ class MainActivity : AppCompatActivity() {
             } else {
                 inserirNumeroTermos.error = "Digite um número válido!"
             }
-            inserirNumeroTermos?.setText(null)
+            inserirNumeroTermos.setText(null)
         }
     }
 
     fun fibonacci(numeroTermos: Int) {
-        var termo1 = 0.toULong()
-        var termo2 = 1.toULong()
+        var termo1: Long = 0
+        var termo2: Long = 1
         var listaSerie = ""
 
         if (numeroTermos == 0) {
