@@ -21,7 +21,6 @@ class MainActivity : AppCompatActivity() {
 
     private val contactList : MutableList<Contact> = mutableListOf()
     private var dataTypeSelected : DataType? = null
-    var message = " "
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -47,20 +46,10 @@ class MainActivity : AppCompatActivity() {
             if(typedData.isEmpty()) edtDataType.error = getString(R.string.blankError)
 
             dataTypeSelected?.let {
-
                 when(dataTypeSelected){
                     DataType.PERSONAL -> contactList.add(PersonalContact(typedName , typedPhone , it , typedData))
                     else ->  contactList.add(ProfessionalContact(typedName , typedPhone , it , typedData))
                 }
-            }
-
-            contactList.sortBy { contact -> contact.name }
-            for (sorted in contactList) {
-                when (sorted) {
-                    is PersonalContact -> sorted.displayPersonalContact()
-                        .also { message += it + "\n\n"}
-                    is ProfessionalContact -> sorted.displayProfessionalContact()
-                        .also { it.also { message += it + "\n\n"} }                }
             }
             edtName.text.clear()
             edtPhone.text.clear()
@@ -70,7 +59,7 @@ class MainActivity : AppCompatActivity() {
         btnSearch.setOnClickListener {
             btnDisplayAll.visibility = View.VISIBLE
             val typedSearch = edtSearch.text.toString()
-            val search = contactList.find{contact -> contact.name == typedSearch}
+            val search = contactList.find{contact -> contact.name.contains(typedSearch)}
 
             if(typedSearch.isEmpty()) getString(R.string.blankError)
                 .also { edtSearch.error = it }
@@ -88,6 +77,15 @@ class MainActivity : AppCompatActivity() {
         }
 
         btnDisplayAll.setOnClickListener {
+            var message = " "
+            contactList.sortBy { contact -> contact.name }
+            for (sorted in contactList) {
+                when (sorted) {
+                    is PersonalContact -> sorted.displayPersonalContact()
+                        .also { message += it + "\n\n"}
+                    is ProfessionalContact -> sorted.displayProfessionalContact()
+                        .also { it.also { message += it + "\n\n"} }                }
+            }
             if(contactList.isEmpty()){
                 Toast.makeText(this,getString(R.string.registredError), Toast.LENGTH_LONG).show()
             }else{
@@ -107,7 +105,7 @@ class MainActivity : AppCompatActivity() {
                     if (checked) {
                         dataTypeSelected  = DataType.PERSONAL
                         edtDataType.hint = getString(R.string.reference)
-                        edtDataType.inputType = InputType.TYPE_TEXT_VARIATION_SHORT_MESSAGE
+                        edtDataType.inputType = InputType.TYPE_TEXT_FLAG_CAP_SENTENCES
                     }
                 R.id.rdProfessional -> {
                     if (checked) {
@@ -120,4 +118,3 @@ class MainActivity : AppCompatActivity() {
         }
     }
 }
-
