@@ -15,9 +15,9 @@
         android:inputType="textCapSentences"
         android:paddingStart="20dp"
         android:textSize="18sp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="20dp"
         app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteX="24dp" />
+         />
 
     <EditText
         android:id="@+id/edtPhone"
@@ -25,7 +25,7 @@
         android:layout_width="match_parent"
         android:hint="@string/phone"
         android:paddingStart="20dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="20dp"
         app:layout_constraintTop_toBottomOf="@id/edtName"
         android:textSize="18sp"
         android:inputType="phone"/>
@@ -34,7 +34,7 @@
         android:id="@+id/rdgDataType"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="20dp"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
         android:orientation="vertical"
@@ -63,7 +63,7 @@
     <EditText
         android:id="@+id/edtDataType"
         style="@style/textBoxSearch"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="20dp"
         android:hint="@string/reference"
         android:inputType="textCapSentences"
         android:layout_width="match_parent"
@@ -81,6 +81,50 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/edtDataType"
-        app:layout_constraintVertical_bias="0.5" />
+        app:layout_constraintVertical_bias="0.1" />
+
+    <TextView
+        android:id="@+id/textView"
+        style="@style/separator"
+        android:layout_width="340dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        app:layout_constraintTop_toBottomOf="@id/btnSave"
+        tools:layout_editor_absoluteX="35dp" />
+
+    <EditText
+        android:id="@+id/edtSearch"
+        style="@style/textBoxSearch"
+        android:layout_width="300dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:hint="@string/search"
+        android:inputType="textCapWords"
+        android:paddingStart="20dp"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textView" />
+
+    <Button
+        android:id="@+id/btnSearch"
+        style="@style/searchButton"
+        android:layout_marginStart="24dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="20dp"
+        app:layout_constraintStart_toEndOf="@id/edtSearch"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    <Button
+        android:id="@+id/btnDisplayAll"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="10dp"
+        android:text="@string/display"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/edtSearch" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
