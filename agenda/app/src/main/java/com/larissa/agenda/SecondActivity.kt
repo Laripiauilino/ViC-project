@@ -28,7 +28,7 @@ class SecondActivity : AppCompatActivity() {
         btnSearch.setOnClickListener {
             btnDisplayAll.visibility = View.VISIBLE
             val typedSearch = edtSearch.text.toString()
-            val search = contactList.find{contact -> contact.name == typedSearch}
+            val search = contactList.find{contact -> contact.name.contains(typedSearch)}
 
             if(typedSearch.isEmpty()) getString(R.string.blankError)
                 .also { edtSearch.error = it }
