@@ -1,5 +1,6 @@
 package com.larissa.agenda
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.InputType
@@ -8,35 +9,26 @@ import android.view.View
 import android.widget.*
 
 class MainActivity : AppCompatActivity() {
-
+    private lateinit var btnSave : Button
     private lateinit var edtName : EditText
     private lateinit var edtPhone : EditText
     private lateinit var rdgDataType : RadioGroup
     private lateinit var edtDataType : EditText
-    private lateinit var btnSave : Button
-    private lateinit var edtSearch : EditText
-    private lateinit var btnSearch : Button
-    private lateinit var txtDisplay : TextView
-    private lateinit var btnDisplayAll : Button
-
     private val contactList : MutableList<Contact> = mutableListOf()
     private var dataTypeSelected : DataType? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        btnSave = findViewById(R.id.btnSave)
+
         edtName = findViewById(R.id.edtName)
         edtPhone = findViewById(R.id.edtPhone)
         rdgDataType = findViewById(R.id.rdgDataType)
         edtDataType = findViewById(R.id.edtDataType)
-        btnSave = findViewById(R.id.btnSave)
-        edtSearch = findViewById(R.id.edtSearch)
-        btnSearch = findViewById(R.id.btnSearch)
-        txtDisplay = findViewById(R.id.txtDisplay)
-        btnDisplayAll = findViewById(R.id.btnDisplayAll)
+
 
         btnSave.setOnClickListener {
-            btnDisplayAll.visibility = View.VISIBLE
             val typedName = edtName.text.toString()
             val typedPhone = edtPhone.text.toString()
             val typedData = edtDataType.text.toString()
@@ -54,44 +46,10 @@ class MainActivity : AppCompatActivity() {
             edtName.text.clear()
             edtPhone.text.clear()
             edtDataType.text.clear()
-        }
 
-        btnSearch.setOnClickListener {
-            btnDisplayAll.visibility = View.VISIBLE
-            val typedSearch = edtSearch.text.toString()
-            val search = contactList.find{contact -> contact.name.contains(typedSearch)}
-
-            if(typedSearch.isEmpty()) getString(R.string.blankError)
-                .also { edtSearch.error = it }
-            if(search != null) {
-                when (search) {
-                    is PersonalContact -> search.displayPersonalContact()
-                        .also { txtDisplay.text = it }
-                    is ProfessionalContact -> search.displayProfessionalContact()
-                        .also { txtDisplay.text = it }
-                }
-            }else{
-                Toast.makeText(this,getString(R.string.searchError), Toast.LENGTH_LONG).show()
-            }
-            edtSearch.text.clear()
-        }
-
-        btnDisplayAll.setOnClickListener {
-            var message = " "
-            contactList.sortBy { contact -> contact.name }
-            for (sorted in contactList) {
-                when (sorted) {
-                    is PersonalContact -> sorted.displayPersonalContact()
-                        .also { message += it + "\n\n"}
-                    is ProfessionalContact -> sorted.displayProfessionalContact()
-                        .also { it.also { message += it + "\n\n"} }                }
-            }
-            if(contactList.isEmpty()){
-                Toast.makeText(this,getString(R.string.registredError), Toast.LENGTH_LONG).show()
-            }else{
-                txtDisplay.text = message
-            }
-            btnDisplayAll.visibility = View.INVISIBLE
+            val intent = Intent(this, SecondActivity::class.java)
+            intent.putExtra(LIST_KEY, ArrayList(contactList))
+            startActivity(intent)
         }
     }
 
@@ -116,5 +74,8 @@ class MainActivity : AppCompatActivity() {
                 }
             }
         }
+    }
+    companion object{
+        val LIST_KEY = "CONTACTLIST"
     }
 }

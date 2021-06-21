@@ -1,13 +1,12 @@
 package com.larissa.agenda
 
-open class ProfessionalContact(name : String,
-                               phone: String,
-                               dataType: DataType,
-                               private val email: String) :
-            Contact(name,
-                phone,
-                dataType) {
-    open fun displayProfessionalContact(): String {
-        return "Contato ${dataType?.description} - Nome: $name / Celular: $phone / E-mail: $email"
-    }
-}
+import kotlinx.android.parcel.Parcelize
+
+@Parcelize
+open class ProfessionalContact(
+    override val name : String,
+    override val phone: String,
+    override var dataType: DataType?,
+    private val email: String) :
+            Contact(name, phone, dataType, email)
+

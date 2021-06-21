@@ -7,7 +7,7 @@
     <string name="reference">Referência</string>
     <string name="email">E-mail</string>
     <string name="save">Salvar</string>
-    <string name="search">Pesquisar (Primeiro nome)</string>
+    <string name="search">Pesquisar </string>
     <string name="display">Exibir todos os contatos</string>
     <string name="blankError">"Insira a informação solicitada!"</string>
     <string name="searchError">"Não foi possível encontrar o nome digitado"</string>
