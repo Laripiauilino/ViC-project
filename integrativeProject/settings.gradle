@@ -1,0 +1,2 @@
+rootProject.name = "Integrative Project"
+include ':app'
