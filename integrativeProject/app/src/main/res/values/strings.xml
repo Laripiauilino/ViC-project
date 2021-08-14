@@ -1,6 +1,10 @@
 <resources>
     <string name="app_name">Integrative Project</string>
-    <string name="tab_text_1">Tab 1</string>
-    <string name="tab_text_2">Tab 2</string>
-    <string name="searchMovie">Pesquisar por um filme...</string>
+    <string name="favoritesTab">Todos os filmes</string>
+    <string name="allMoviesTab">Favoritos</string>
+    <string name="movieSearch">Pesquisar por um filme...</string>
+    <string name="movie_title">Movie title</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <!-- TODO: Remove or change this placeholder text -->
 </resources>

@@ -7,6 +7,10 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="greenAccent">#11C76F</color>
-    <color name="background">#E5E5E5</color>
+    <color name="greenAccentColor">#11C76F</color>
+    <color name="backgroundColor">#E5E5E5</color>
+    <color name="backgroud_chip_cheked">#223324</color>
+    <color name="backgroud_chip">#E5E5E5</color>
+    <color name="text_chip">#80000000</color>
+    <color name="text_chip_cheked">#FAF9F9</color>
 </resources>

@@ -1,5 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/laris/Dropbox/ViC/IntegrativeProject/app/src/main/res/drawable/genre_detail.xml" value="0.20625" />
+        <entry key="..\:/Users/laris/Dropbox/ViC/IntegrativeProject/app/src/main/res/drawable/ic_baseline_close_24.xml" value="0.23333333333333334" />
+        <entry key="..\:/Users/laris/Dropbox/ViC/IntegrativeProject/app/src/main/res/drawable/ic_baseline_search.xml" value="0.12604166666666666" />
+        <entry key="..\:/Users/laris/Dropbox/ViC/IntegrativeProject/app/src/main/res/drawable/ic_connectiondrawable.xml" value="0.2203125" />
+        <entry key="..\:/Users/laris/Dropbox/ViC/IntegrativeProject/app/src/main/res/drawable/ic_return.xml" value="0.23333333333333334" />
+        <entry key="..\:/Users/laris/Dropbox/ViC/IntegrativeProject/app/src/main/res/drawable/sl_favourite_24dp.xml" value="0.23333333333333334" />
+        <entry key="..\:/Users/laris/Dropbox/ViC/IntegrativeProject/app/src/main/res/drawable/tab_indicator.xml" value="0.12604166666666666" />
+        <entry key="..\:/Users/laris/Dropbox/ViC/IntegrativeProject/app/src/main/res/font/font.xml" value="0.14010416666666667" />
+        <entry key="..\:/Users/laris/Dropbox/ViC/IntegrativeProject/app/src/main/res/layout/activity_generic_error.xml" value="0.22" />
+        <entry key="..\:/Users/laris/Dropbox/ViC/IntegrativeProject/app/src/main/res/layout/activity_generic_error2.xml" value="0.182518115942029" />
+        <entry key="..\:/Users/laris/Dropbox/ViC/IntegrativeProject/app/src/main/res/layout/activity_home.xml" value="0.25" />
+        <entry key="..\:/Users/laris/Dropbox/ViC/IntegrativeProject/app/src/main/res/layout/activity_movie_details.xml" value="0.2696629213483146" />
+        <entry key="..\:/Users/laris/Dropbox/ViC/IntegrativeProject/app/src/main/res/layout/activity_show_movie.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/laris/Dropbox/ViC/IntegrativeProject/app/src/main/res/layout/all_movies_fragment.xml" value="0.1" />
+        <entry key="..\:/Users/laris/Dropbox/ViC/IntegrativeProject/app/src/main/res/layout/all_movies_item.xml" value="0.3623445825932504" />
+        <entry key="..\:/Users/laris/Dropbox/ViC/IntegrativeProject/app/src/main/res/layout/cast_item.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/laris/Dropbox/ViC/IntegrativeProject/app/src/main/res/layout/favorite_movies_fragment.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/laris/Dropbox/ViC/IntegrativeProject/app/src/main/res/layout/fragment_all_movies.xml" value="0.22083333333333333" />
+        <entry key="..\:/Users/laris/Dropbox/ViC/IntegrativeProject/app/src/main/res/layout/fragment_favorite_movies.xml" value="0.1" />
+        <entry key="..\:/Users/laris/Dropbox/ViC/IntegrativeProject/app/src/main/res/layout/fragment_movies.xml" value="0.1" />
+        <entry key="..\:/Users/laris/Dropbox/ViC/IntegrativeProject/app/src/main/res/layout/fragment_not_found.xml" value="0.1" />
+        <entry key="..\:/Users/laris/Dropbox/ViC/IntegrativeProject/app/src/main/res/layout/genre_details_item.xml" value="0.25" />
+        <entry key="..\:/Users/laris/Dropbox/ViC/IntegrativeProject/app/src/main/res/layout/genre_item.xml" value="0.22" />
+        <entry key="..\:/Users/laris/Dropbox/ViC/IntegrativeProject/app/src/main/res/layout/genres_details_item.xml" value="0.19010416666666666" />
+        <entry key="..\:/Users/laris/Dropbox/ViC/IntegrativeProject/app/src/main/res/layout/genres_item.xml" value="0.19010416666666666" />
+        <entry key="..\:/Users/laris/Dropbox/ViC/IntegrativeProject/app/src/main/res/layout/movie_list_item.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/laris/Dropbox/ViC/IntegrativeProject/app/src/main/res/layout/network_state_item.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/laris/Dropbox/ViC/IntegrativeProject/app/src/main/res/layout/not_found_item.xml" value="0.22083333333333333" />
+        <entry key="..\:/Users/laris/Dropbox/ViC/IntegrativeProject/app/src/main/res/layout/search_movie_fragment.xml" value="0.19010416666666666" />
+        <entry key="..\:/Users/laris/Dropbox/ViC/IntegrativeProject/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.12239583333333333" />
+      </map>
+    </option>
+  </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
