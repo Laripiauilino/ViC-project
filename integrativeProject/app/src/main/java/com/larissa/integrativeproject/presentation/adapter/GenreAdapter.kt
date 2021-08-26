@@ -1,15 +1,15 @@
 package com.larissa.integrativeproject.presentation.adapter
 
-import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.larissa.integrativeproject.data.model.Genre
 import com.larissa.integrativeproject.databinding.GenreItemBinding
+import com.larissa.integrativeproject.domain.CheckListener
 
-class GenreAdapter (val context: Context, val dataSet: MutableList<Genre>): RecyclerView.Adapter<GenreAdapter.GenreViewHolder>(){
-    var genreChecked : (genreIds: List<Int>) -> Unit = {}
-    private val idGenresList: MutableList<Int> = mutableListOf()
+class GenreAdapter (private val checkListener: CheckListener? = null,val dataSet: MutableList<Genre>): RecyclerView.Adapter<GenreAdapter.GenreViewHolder>(){
+//    Modificar
+     val genreIdsList: MutableList<Int> = mutableListOf()
 
     inner class GenreViewHolder(val binding: GenreItemBinding)
         : RecyclerView.ViewHolder(binding.root)
@@ -26,15 +26,17 @@ class GenreAdapter (val context: Context, val dataSet: MutableList<Genre>): Recy
         with(holder){
             with(dataSet[position]){
                 binding.chpGenre.text = name
-
+                binding.chpGenre.setOnCheckedChangeListener(null)
+                binding.chpGenre.isChecked = genreIdsList.contains(id)
                 binding.chpGenre.setOnCheckedChangeListener{_, isChecked ->
                     if (isChecked) {
-                        idGenresList.add(dataSet[position].id)
+                        genreIdsList.add(id)
                     } else {
-                        idGenresList.remove(dataSet[position].id)
+                        genreIdsList.remove(id)
                     }
-                    genreChecked(idGenresList)
-                }
+                    checkListener?.onGenreCheckListener(genreIdsList)
+
+               }
             }
         }
     }

@@ -4,5 +4,5 @@ import com.google.gson.annotations.SerializedName
 
 data class CastResponse(
     @SerializedName("cast")
-    val castList: MutableList<Cast>
+    val results: List<Cast>
 )

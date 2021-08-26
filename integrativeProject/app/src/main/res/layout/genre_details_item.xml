@@ -5,18 +5,21 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <TextView
+    <com.google.android.material.chip.Chip
         android:id="@+id/txtGenreDetails"
         android:layout_width="wrap_content"
-        style="@style/genre_detail"
-        android:layout_height="@dimen/large"
-        android:layout_marginEnd="5dp"
-        android:layout_marginStart="5dp"
-        android:background="@drawable/genre_detail"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/lato_regular"
+        android:textSize="@dimen/smallSp"
+        android:layout_margin="@dimen/xsmall"
         android:paddingEnd="12dp"
         android:paddingStart="12dp"
-        tools:text="Gênero"
-        app:autoSizeTextType="uniform"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:checkable="false"
+        android:cursorVisible="false"
+        style="@style/ChipGenreMovieDetail"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:text="Genero"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

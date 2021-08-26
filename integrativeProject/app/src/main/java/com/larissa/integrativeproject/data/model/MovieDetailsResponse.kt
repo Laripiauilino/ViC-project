@@ -2,16 +2,15 @@ package com.larissa.integrativeproject.data.model
 
 import com.google.gson.annotations.SerializedName
 
-
 data class MovieDetailsResponse (
-    val genres: MutableList<Genre>,
+    val genres: List<Genre>,
     @SerializedName("id")
     val movieId: Int,
     val overview: String,
-    @SerializedName("backdrop_path")
-    val backdropPath: String,
     @SerializedName("poster_path")
     val posterPath: String,
+    @SerializedName("backdrop_path")
+    val backdropPath: String,
     @SerializedName("release_date")
     val releaseDate: String,
     val runtime: Int,

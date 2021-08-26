@@ -9,7 +9,7 @@ import com.larissa.integrativeproject.data.model.Cast
 import com.larissa.integrativeproject.data.model.Constants
 import com.larissa.integrativeproject.databinding.CastItemBinding
 
-class CastAdapter  (val context: Context, val dataSet: MutableList<Cast> = mutableListOf()): RecyclerView.Adapter<CastAdapter.CastViewHolder>(){
+class CastAdapter  (val context: Context, val dataSet: MutableList<Cast>): RecyclerView.Adapter<CastAdapter.CastViewHolder>(){
     inner class CastViewHolder(val binding: CastItemBinding)
         : RecyclerView.ViewHolder(binding.root)
 

@@ -1,82 +1,86 @@
 package com.larissa.integrativeproject.presentation.viewmodel
 
+import android.app.Application
+import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
-import com.larissa.integrativeproject.data.model.AllMovies
 import com.larissa.integrativeproject.data.model.CastResponse
 import com.larissa.integrativeproject.data.model.CertificationResponse
 import com.larissa.integrativeproject.data.model.MovieDetailsResponse
-import com.larissa.integrativeproject.data.repository.FavoritesRepository
+import com.larissa.integrativeproject.data.model.Movies
 import com.larissa.integrativeproject.domain.*
 import io.reactivex.android.schedulers.AndroidSchedulers
-import io.reactivex.disposables.Disposable
+import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import javax.xml.transform.ErrorListener
 
-class MovieDetailsViewModel : ViewModel() {
-    //QUEM VÊ É A VIEWMODEL
+class MovieDetailsViewModel(application: Application) : AndroidViewModel(application){
+
+    val context = getApplication<Application>().applicationContext
+
+    private var composite = CompositeDisposable()
 
     private val _movieDetailsLiveData = MutableLiveData<MovieDetailsResponse>()
-    val movieDetailsLiveData : LiveData<MovieDetailsResponse> = _movieDetailsLiveData
-
-    private val _favoritesLiveData = MutableLiveData<MutableList<AllMovies>>()
-    val favoritesLiveData: MutableLiveData<MutableList<AllMovies>> = _favoritesLiveData
+    val movieDetailsLiveData: LiveData<MovieDetailsResponse> = _movieDetailsLiveData
 
     private val _certificationLiveData = MutableLiveData<CertificationResponse>()
-    val certificationResponseLiveData : LiveData<CertificationResponse> = _certificationLiveData
+    val certificationResponseLiveData: LiveData<CertificationResponse> = _certificationLiveData
 
     private val _castsLiveData = MutableLiveData<CastResponse>()
-    val castsLiveData : MutableLiveData<CastResponse> = _castsLiveData
+    val castsLiveData: LiveData<CastResponse> = _castsLiveData
 
     private val fetchMovieDetailsUseCase = FetchMovieDetailsUseCase()
     private val fetchCertificationUseCase = FetchCertificationUseCase()
     private val fetchCastsUseCase = FetchCastsUseCase()
-    private val insertFavoriteUseCase = InsertFavoriteUseCase()
-    private val deleteFavoriteUseCase = DeleteFavoriteUseCase()
 
-    fun getMovieDetails(movieId: Int):Disposable{
-        return fetchMovieDetailsUseCase.execute(movieId)
+
+    fun getMovieDetails(movieId: Int) {
+        composite.add(fetchMovieDetailsUseCase.execute(movieId)
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .doOnError {
-                //Chamar a activity de erro
+//                errorListener?.onErrorListener()
             }
-            .subscribe{
+            .subscribe {
                 _movieDetailsLiveData.value = it
-            }
+                }
+            )
+
     }
 
-    fun getCertification(movieId: Int): Disposable{
-        return fetchCertificationUseCase.execute(movieId)
+    fun getCertification(movieId: Int) {
+        composite.add(fetchCertificationUseCase.execute(movieId)
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .doOnError {
-                //Chamar a activity de erro
+//                errorListener?.onErrorListener()
             }
             .subscribe {
                 _certificationLiveData.value = it
-                }
             }
+        )
+    }
 
-    fun getCasts(movieId: Int): Disposable{
-        return fetchCastsUseCase.execute(movieId)
+    fun getCasts(movieId: Int) {
+        composite.add(fetchCastsUseCase.execute(movieId)
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .doOnError {
-                //Chamar a activity de erro
+//                errorListener?.onErrorListener()
             }
-            .subscribe{
+            .subscribe {
                 _castsLiveData.value = it
             }
+        )
     }
 
-    fun insertFavorite() {
-        _favoritesLiveData.value = insertFavoriteUseCase as MutableList<AllMovies>
-
+    override fun onCleared() {
+        super.onCleared()
+        composite.dispose()
     }
 
-    fun removeFavorite() {
-        _favoritesLiveData.value = deleteFavoriteUseCase as MutableList<AllMovies>
-    }
 }
 

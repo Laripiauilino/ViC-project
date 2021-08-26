@@ -1,14 +1,9 @@
-package com.larissa.integrativeproject.presentation.ui
+package com.larissa.integrativeproject.presentation.screen
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.recyclerview.widget.RecyclerView
 import com.larissa.integrativeproject.R
 import com.larissa.integrativeproject.databinding.ActivityGenericErrorBinding
-import com.larissa.integrativeproject.databinding.ActivityMovieDetailsBinding
-import com.larissa.integrativeproject.presentation.adapter.CastAdapter
-import com.larissa.integrativeproject.presentation.adapter.GenreDetailsAdapter
-import com.larissa.integrativeproject.presentation.viewmodel.MovieDetailsViewModel
 
 class GenericErrorActivity : AppCompatActivity() {
 

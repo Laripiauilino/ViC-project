@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- When search view is selected   -->
+    <item android:state_focused="true"
+        android:drawable="@drawable/searchview_lit_line" />
+
+    <!-- When search view is out of focus   -->
+    <item android:drawable="@drawable/searchview_off_line" />
+</selector>

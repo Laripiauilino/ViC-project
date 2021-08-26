@@ -32,7 +32,37 @@
         <entry key="..\:/Users/laris/Dropbox/ViC/IntegrativeProject/app/src/main/res/layout/network_state_item.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/laris/Dropbox/ViC/IntegrativeProject/app/src/main/res/layout/not_found_item.xml" value="0.22083333333333333" />
         <entry key="..\:/Users/laris/Dropbox/ViC/IntegrativeProject/app/src/main/res/layout/search_movie_fragment.xml" value="0.19010416666666666" />
-        <entry key="..\:/Users/laris/Dropbox/ViC/IntegrativeProject/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.12239583333333333" />
+        <entry key="..\:/Users/laris/Dropbox/ViC/projetos/projeto_integrador/IntegrativeProject - Copia/app/src/main/res/layout/movies_item.xml" value="0.1" />
+        <entry key="..\:/Users/laris/Dropbox/ViC/projetos/projeto_integrador/IntegrativeProject/app/src/main/res/drawable/circle.xml" value="0.12552083333333333" />
+        <entry key="..\:/Users/laris/Dropbox/ViC/projetos/projeto_integrador/IntegrativeProject/app/src/main/res/drawable/genre_detail.xml" value="0.12552083333333333" />
+        <entry key="..\:/Users/laris/Dropbox/ViC/projetos/projeto_integrador/IntegrativeProject/app/src/main/res/drawable/ic_baseline_close.xml" value="0.12552083333333333" />
+        <entry key="..\:/Users/laris/Dropbox/ViC/projetos/projeto_integrador/IntegrativeProject/app/src/main/res/drawable/ic_baseline_search.xml" value="0.12552083333333333" />
+        <entry key="..\:/Users/laris/Dropbox/ViC/projetos/projeto_integrador/IntegrativeProject/app/src/main/res/drawable/ic_connection_drawable.xml" value="0.12552083333333333" />
+        <entry key="..\:/Users/laris/Dropbox/ViC/projetos/projeto_integrador/IntegrativeProject/app/src/main/res/drawable/ic_favorite_filled.xml" value="0.12552083333333333" />
+        <entry key="..\:/Users/laris/Dropbox/ViC/projetos/projeto_integrador/IntegrativeProject/app/src/main/res/drawable/ic_favorite_outlined.xml" value="0.12552083333333333" />
+        <entry key="..\:/Users/laris/Dropbox/ViC/projetos/projeto_integrador/IntegrativeProject/app/src/main/res/drawable/ic_launcher_background.xml" value="0.12552083333333333" />
+        <entry key="..\:/Users/laris/Dropbox/ViC/projetos/projeto_integrador/IntegrativeProject/app/src/main/res/drawable/ic_not_found_drawable.xml" value="0.12552083333333333" />
+        <entry key="..\:/Users/laris/Dropbox/ViC/projetos/projeto_integrador/IntegrativeProject/app/src/main/res/drawable/ic_return.xml" value="0.12552083333333333" />
+        <entry key="..\:/Users/laris/Dropbox/ViC/projetos/projeto_integrador/IntegrativeProject/app/src/main/res/drawable/search_drawable.xml" value="0.12552083333333333" />
+        <entry key="..\:/Users/laris/Dropbox/ViC/projetos/projeto_integrador/IntegrativeProject/app/src/main/res/drawable/searchview.xml" value="0.18611111111111112" />
+        <entry key="..\:/Users/laris/Dropbox/ViC/projetos/projeto_integrador/IntegrativeProject/app/src/main/res/drawable/searchview_lit_line.xml" value="0.12552083333333333" />
+        <entry key="..\:/Users/laris/Dropbox/ViC/projetos/projeto_integrador/IntegrativeProject/app/src/main/res/drawable/searchview_off_line.xml" value="0.12552083333333333" />
+        <entry key="..\:/Users/laris/Dropbox/ViC/projetos/projeto_integrador/IntegrativeProject/app/src/main/res/drawable/sl_favorite.xml" value="0.12552083333333333" />
+        <entry key="..\:/Users/laris/Dropbox/ViC/projetos/projeto_integrador/IntegrativeProject/app/src/main/res/drawable/sl_favorite_24dp.xml" value="0.12552083333333333" />
+        <entry key="..\:/Users/laris/Dropbox/ViC/projetos/projeto_integrador/IntegrativeProject/app/src/main/res/drawable/star.xml" value="0.12552083333333333" />
+        <entry key="..\:/Users/laris/Dropbox/ViC/projetos/projeto_integrador/IntegrativeProject/app/src/main/res/drawable/tab_indicator.xml" value="0.12552083333333333" />
+        <entry key="..\:/Users/laris/Dropbox/ViC/projetos/projeto_integrador/IntegrativeProject/app/src/main/res/font/font.xml" value="0.13958333333333334" />
+        <entry key="..\:/Users/laris/Dropbox/ViC/projetos/projeto_integrador/IntegrativeProject/app/src/main/res/layout/activity_generic_error.xml" value="0.109375" />
+        <entry key="..\:/Users/laris/Dropbox/ViC/projetos/projeto_integrador/IntegrativeProject/app/src/main/res/layout/activity_home.xml" value="0.5" />
+        <entry key="..\:/Users/laris/Dropbox/ViC/projetos/projeto_integrador/IntegrativeProject/app/src/main/res/layout/activity_movie_details.xml" value="0.32142857142857145" />
+        <entry key="..\:/Users/laris/Dropbox/ViC/projetos/projeto_integrador/IntegrativeProject/app/src/main/res/layout/all_movies_item.xml" value="0.1" />
+        <entry key="..\:/Users/laris/Dropbox/ViC/projetos/projeto_integrador/IntegrativeProject/app/src/main/res/layout/cast_item.xml" value="0.109375" />
+        <entry key="..\:/Users/laris/Dropbox/ViC/projetos/projeto_integrador/IntegrativeProject/app/src/main/res/layout/fragment_favorite_movies.xml" value="0.1" />
+        <entry key="..\:/Users/laris/Dropbox/ViC/projetos/projeto_integrador/IntegrativeProject/app/src/main/res/layout/fragment_movies.xml" value="0.1" />
+        <entry key="..\:/Users/laris/Dropbox/ViC/projetos/projeto_integrador/IntegrativeProject/app/src/main/res/layout/fragment_search_movies.xml" value="0.1" />
+        <entry key="..\:/Users/laris/Dropbox/ViC/projetos/projeto_integrador/IntegrativeProject/app/src/main/res/layout/genre_details_item.xml" value="0.67" />
+        <entry key="..\:/Users/laris/Dropbox/ViC/projetos/projeto_integrador/IntegrativeProject/app/src/main/res/layout/genre_item.xml" value="0.109375" />
+        <entry key="..\:/Users/laris/Dropbox/ViC/projetos/projeto_integrador/IntegrativeProject/app/src/main/res/layout/movies_item.xml" value="0.25" />
       </map>
     </option>
   </component>

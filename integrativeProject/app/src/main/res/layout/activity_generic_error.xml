@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/backgroundColor">
@@ -14,7 +13,7 @@
         android:background="@android:color/transparent"
         android:layout_marginTop="@dimen/medium"
         android:layout_marginEnd="@dimen/medium"
-        android:src="@drawable/ic_baseline_close_24"
+        android:src="@drawable/ic_baseline_close"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -22,8 +21,8 @@
         android:id="@+id/imgConnectionError"
         android:layout_width="200dp"
         android:layout_height="210dp"
-        android:layout_marginTop="108dp"
-        android:src="@drawable/ic_connectiondrawable"
+        android:layout_marginTop="80dp"
+        android:src="@drawable/ic_connection_drawable"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.559"
         app:layout_constraintStart_toStartOf="parent"
@@ -35,8 +34,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
-
-        android:text="O sistema falhou"
+        android:text="@string/systemFailed"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imgConnectionError" />
@@ -45,41 +43,40 @@
         android:id="@+id/txtDetailsFailed"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/lato_normal"
+        android:fontFamily="@font/lato_regular"
         android:layout_marginTop="24dp"
-        android:text="Por algum motivo, não foi possível processar com essa solicitação. Por favor, tente novamente."
+        android:text="@string/systemFailedDetails"
         android:textAlignment="center"
-        android:textColor="#A39B9B"
-        android:textSize="@dimen/small_sp"
+        android:textColor="@color/synopsisTextColor"
+        android:textSize="@dimen/smallSp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtSystemFailed" />
 
-    <Button
+    <TextView
         android:id="@+id/btnTryAgain"
         style="@style/movieTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@android:color/transparent"
-        android:fontFamily="@font/lato_normal"
-        android:text="Tentar novamente"
+        android:fontFamily="@font/lato_regular"
+        android:text="@string/tryAgain"
         android:textAllCaps="false"
         android:textColor="@color/greenAccentColor"
-        app:layout_constraintBottom_toTopOf="@+id/imageView"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtDetailsFailed"
-        app:layout_constraintVertical_bias="0.913" />
+        app:layout_constraintTop_toBottomOf="@+id/txtDetailsFailed" />
 
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/tab_indicator"
+        android:layout_marginTop="@dimen/small"
+        app:layout_constraintTop_toBottomOf="@+id/btnTryAgain"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="709dp" />
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

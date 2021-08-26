@@ -1,4 +1,4 @@
-package com.larissa.integrativeproject.data.repository
+package com.larissa.integrativeproject.data.repository.remote
 
 import com.larissa.integrativeproject.data.model.Constants
 import okhttp3.OkHttpClient

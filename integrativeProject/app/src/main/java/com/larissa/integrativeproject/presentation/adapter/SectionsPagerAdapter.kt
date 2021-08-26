@@ -3,8 +3,8 @@ package com.larissa.integrativeproject.presentation.adapter
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.viewpager2.adapter.FragmentStateAdapter
-import com.larissa.integrativeproject.presentation.ui.AllMoviesFragment
-import com.larissa.integrativeproject.presentation.ui.FavoriteMoviesFragment
+import com.larissa.integrativeproject.presentation.screen.AllMoviesFragment
+import com.larissa.integrativeproject.presentation.screen.FavoriteMoviesFragment
 
 class SectionsPagerAdapter (fa: FragmentActivity) : FragmentStateAdapter(fa) {
 
@@ -17,7 +17,6 @@ class SectionsPagerAdapter (fa: FragmentActivity) : FragmentStateAdapter(fa) {
             else -> AllMoviesFragment()
         }
     }
-
     companion object {
         private const val NUM_PAGES = 2
     }

@@ -1,13 +1,12 @@
 package com.larissa.integrativeproject.presentation.adapter
 
-import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.larissa.integrativeproject.data.model.Genre
 import com.larissa.integrativeproject.databinding.GenreDetailsItemBinding
 
-class GenreDetailsAdapter (val context: Context, val dataSet: MutableList<Genre> = mutableListOf()): RecyclerView.Adapter<GenreDetailsAdapter.GenreDetailsViewHolder>(){
+class GenreDetailsAdapter (val dataSet: MutableList<Genre>): RecyclerView.Adapter<GenreDetailsAdapter.GenreDetailsViewHolder>(){
     inner class GenreDetailsViewHolder(val binding: GenreDetailsItemBinding)
         :RecyclerView.ViewHolder(binding.root)
 

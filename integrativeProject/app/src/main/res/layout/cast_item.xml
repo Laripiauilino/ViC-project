@@ -3,16 +3,16 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
-    android:layout_height="match_parent"
-    android:layout_marginRight="@dimen/small">
-
+    android:layout_height="wrap_content"
+    android:background="@color/backgroundColor"
+    android:layout_margin="@dimen/xsmall" >
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/imgCharacter"
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:layout_marginStart="16dp"
-        app:civ_border_color="@color/white"
+        app:civ_border_color="@color/backgroundColor"
         app:civ_border_width="3dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -20,9 +20,11 @@
     <TextView
         android:id="@+id/txtActorName"
         android:layout_width="80dp"
-        android:layout_height="38dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/lato_regular"
         android:layout_marginTop="12dp"
-        android:textColor="#444946"
+        android:textAlignment="center"
+        android:textColor="@color/movieTitleColor"
         app:layout_constraintStart_toStartOf="@+id/imgCharacter"
         app:layout_constraintTop_toBottomOf="@+id/imgCharacter"
         tools:text="Nome do Ator" />
@@ -30,9 +32,13 @@
     <TextView
         android:id="@+id/txtCharacterName"
         android:layout_width="80dp"
-        android:layout_height="38dp"
-        android:layout_marginTop="4dp"
-        android:textColor="#919E98"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="4dp"
+        android:fontFamily="@font/lato_regular"
+        android:textAlignment="center"
+        android:textColor="@color/movieInfoTextColor"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="@+id/imgCharacter"
         app:layout_constraintTop_toBottomOf="@+id/txtActorName"
         tools:text="Nome do personagem" />

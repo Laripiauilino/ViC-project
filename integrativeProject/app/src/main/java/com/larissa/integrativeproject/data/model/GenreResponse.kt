@@ -1,6 +1,9 @@
 package com.larissa.integrativeproject.data.model
 
+import com.google.gson.annotations.SerializedName
+
 
 data class GenreResponse (
-    val genres: MutableList<Genre>
+    @SerializedName("genres")
+    val results: List<Genre>
 )
